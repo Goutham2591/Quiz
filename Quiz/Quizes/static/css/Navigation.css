@@ -1,0 +1,14 @@
+.navbar-custom
+{
+    #border-bottom: 5px solid #e22626;
+    background-color:#636568;
+    color:White;
+    font-family:'Helvetica';
+    font-size:1em;
+    /*height: 80px;*/
+}
+
+#head
+{
+    color:White;
+}
