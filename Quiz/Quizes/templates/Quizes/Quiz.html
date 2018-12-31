@@ -2,6 +2,7 @@
 {% load staticfiles %}
 {% block content %}
 
+
 <div class="container">
     <div class = row>
         <div class="card col-lg-12" style="margin-top:50px;box-shadow: 5px 7px 7px 5px grey;">
@@ -37,10 +38,20 @@
                             <p><b>Unsure</b> = I just don't know</p>
                     </div>
                 </div>&emsp;
-            <p><b>1. Resistance to Stress:</b> The ability to get the work done under stressful conditions</p>
-            {% for Answer in Solutions %}
-                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ Solution.id }}" />
-            {% endfor %}
+            <div>
+                    {% csrf_token %}
+                <form action="/century_score" method="POST">
+                    {% for q in question %}
+                        {{ q }}
+                    {% endfor %}
+                    <br><br>
+                    {% for ans in answers %}
+                        <input type="radio" value="{{ ans.id }}"/> {{ ans }} <br>
+                    {% endfor %}
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>            
         </div>
 
     </div>
