@@ -38,23 +38,24 @@
                             <p><b>Unsure</b> = I just don't know</p>
                     </div>
                 </div>&emsp;
-            <div>
+                <div>
                     {% csrf_token %}
-                <form action="/century_score" method="POST">
-                    {% for q in question %}
-                        {{ q }}
-                    {% endfor %}
-                    <br><br>
-                    {% for ans in answers %}
-                        <input type="radio" value="{{ ans.id }}"/> {{ ans }} <br>
-                    {% endfor %}
-                    <br>
-                    <input type="submit" value="Submit">
-                </form>
-            </div>            
+                        <form action="/century_score" method="POST">
+                            {% csrf_token %}
+                            {% for q in question %}
+                                {{ q }}
+                            {% endfor %}<br>
+
+                            {% for ans in answers %}
+                            <input type="radio" value="{{ ans.id }}"/> {{ ans }} <br>
+                            {% endfor %}
+                            <br>
+                            <input type="submit" value="Submit">
+                        </form>
+                </div>
         </div>
 
     </div>
-</div>
+</div><br>
 
 {% endblock %}

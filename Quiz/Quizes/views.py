@@ -9,6 +9,16 @@ def home(request):
                   {'home': home})
 
 
+# def quiz(request):
+#
+#     question = Question.objects.all()
+#
+#     answers = Solution.objects.all()
+#
+#     return render(request, 'Quizes/Quiz.html',
+#                   {'question':question, 'answers': answers})
+
+
 def quiz(request):
 
     question = Question.objects.all()
@@ -19,9 +29,11 @@ def quiz(request):
                   {'question':question, 'answers': answers})
 
 
+
 def century_answers(request):
-    if request.method == 'POST':
+    #if request.method == 'POST':
         
-    return render(request, 'score.html')
+    return render(request, 'Quizes/Score.html',
+                  {'century_answers':century_answers})
 
 
