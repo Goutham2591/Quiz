@@ -39,16 +39,17 @@
                     </div>
                 </div>&emsp;
                 <div>
-                    {% csrf_token %}
                         <form action="/century_score" method="POST">
                             {% csrf_token %}
+                            <div>
                             {% for q in question %}
-                                {{ q }}
+                                {{ q }} <br>
+                                {% for ans in answers %}
+                                    {% if ans.question == q %}
+                                        <input type="radio" value="{{ ans.Points }}" name="answer" id="answer"> {{ ans }} <br>
+                                    {% endif %}
+                                {% endfor %}
                             {% endfor %}<br>
-
-                            {% for ans in answers %}
-                            <input type="radio" value="{{ ans.id }}"/> {{ ans }} <br>
-                            {% endfor %}
                             <br>
                             <input type="submit" value="Submit">
                         </form>
